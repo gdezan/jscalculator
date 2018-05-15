@@ -18,14 +18,14 @@ buttons.forEach(btn => {
 })
 
 function screenWrite(btn){
-    if (btn.classList.contains('btn1')){
+    if (btn.classList.contains('btn1')){ // AC
         screen.innerHTML = "0";
         error = true;
         result = 0;  
-    } else if (btn.classList.contains('btn2')){
+    } else if (btn.classList.contains('btn2')){ // CE
         screen.innerHTML = "0";
         error = true;  
-    } else if (btn.classList.contains('btn3')){
+    } else if (btn.classList.contains('btn3')){ // %
         let n = Number(screen.innerHTML) / 100;
         if (isNaN(n)){
             screen.innerHTML="ERROR";
@@ -33,7 +33,7 @@ function screenWrite(btn){
             screen.innerHTML=(n.toString()).substring(0,10);
         }
         error = true;  
-    } else if (btn.classList.contains('btn4') || btn.classList.contains('btn8') || btn.classList.contains('btn12') || btn.classList.contains('btn16')){
+    } else if (btn.classList.contains('btn4') || btn.classList.contains('btn8') || btn.classList.contains('btn12') || btn.classList.contains('btn16')){ // +, -, / or *
         first = Number(screen.innerHTML);
         operation = btn.textContent;
         screen.innerHTML = operation;
@@ -42,7 +42,7 @@ function screenWrite(btn){
     } else if (error){
         screen.innerHTML = btn.textContent;
         error = false;
-    } else if (btn.classList.contains('btn19')){
+    } else if (btn.classList.contains('btn19')){ // =
         let n = Number(result);
         if (isNaN(n)){
             screen.innerHTML="ERROR";
@@ -50,7 +50,7 @@ function screenWrite(btn){
             screen.innerHTML=n;
         }
         error = true;
-    } else if (screen.innerHTML.length <= 10){
+    } else if (screen.innerHTML.length <= 10){ // any number
         screen.innerHTML += btn.textContent;
     }
 
